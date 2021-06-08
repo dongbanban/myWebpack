@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-08 14:12:25
- * @LastEditTime: 2021-06-08 15:44:29
+ * @LastEditTime: 2021-06-08 16:43:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\.eslintrc.js
@@ -37,7 +37,7 @@ module.exports = {
     'import/no-unresolved': [
       2,
       {
-        ignore: ['^@src/', '^@assets/']
+        ignore: ['^@src/', '^@assets/', '^@utils/']
       }
     ],
     'import/no-extraneous-dependencies': 0,
@@ -47,6 +47,7 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'linebreak-style': 0,
-    'no-unused-vars': 0
+    'no-unused-vars': 0,
+    'max-classes-per-file': ['error', 2]
   }
 }
