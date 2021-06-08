@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:13
- * @LastEditTime: 2021-06-08 14:46:18
+ * @LastEditTime: 2021-06-08 15:55:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.base.js
@@ -22,7 +22,8 @@ module.exports = {
     alias: {
       // 设置目录别名
       '@src': path.resolve(__dirname, 'src/'),
-      '@assets': path.resolve(__dirname, 'src/assets/')
+      '@assets': path.resolve(__dirname, 'src/assets/'),
+      '@utils': path.resolve(__dirname, 'src/utils/')
     },
     extensions: ['.ts', '.tsx', '.js', '.json'] // 支持ts
   },
