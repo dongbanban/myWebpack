@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-08 14:12:25
- * @LastEditTime: 2021-06-08 15:03:25
+ * @LastEditTime: 2021-06-08 15:40:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\.eslintrc.js
@@ -27,7 +27,7 @@ module.exports = {
     'react/jsx-filename-extension': [
       1,
       {
-        extensions: ['.js']
+        extensions: ['.js', '.jsx']
       }
     ],
     'react/jsx-wrap-multilines': 0,
