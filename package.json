@@ -65,8 +65,7 @@
   "lint-staged": {
     "*.{js,vue,jsx,tsx}": [
       "prettier --write --ignore-unknown",
-      "eslint --cache --fix",
-      "git add"
+      "eslint --cache --fix"
     ]
   }
 }
