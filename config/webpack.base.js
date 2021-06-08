@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:13
- * @LastEditTime: 2021-06-07 18:36:13
+ * @LastEditTime: 2021-06-08 11:53:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.base.js
@@ -14,22 +14,28 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-    entry: ['@babel/polyfill', path.resolve('src/index.js')],
+    entry: ['@babel/polyfill', path.resolve('src/index.tsx')],
     output: {
         filename: '[name].[contenthash].js', // 输出的文件名称
         path: path.resolve(__dirname, '../dist'), // 输出的文件夹
         // assetModuleFilename: 'images/[hash][ext][query]' // 输出的资源文件名
     },
+    resolve: {
+        alias: { // 设置目录别名
+            '@src': path.resolve(__dirname, 'src/'),
+            '@assets': path.resolve(__dirname, 'src/assets/'),
+        },
+        extensions: [".ts", ".tsx", ".js", ".json"], // 支持ts
+    },
     module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
+        rules: [{
+                test: /\.(js|ts)x$/,
                 exclude: /node_modules/, // 指定目录下的文件不编译
                 use: {
-                  loader: 'babel-loader',
-                  options: {
-                    cacheDirectory: true
-                  }
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: true
+                    }
                 }
             },
             {
