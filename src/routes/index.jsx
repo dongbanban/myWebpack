@@ -4,7 +4,7 @@ import RouterLayout from '../layout/layout'
 import Home from '../home'
 import routerConfig from './config'
 
-const createRouter = data => {
+const createRouterView = data => {
   return (
     <Switch key="switch">
       {data.map(routerItem => {
@@ -12,7 +12,7 @@ const createRouter = data => {
         if (childRoutes.length === 0) {
           return <Route path={`${path}`} key={name} component={Home} />
         }
-        return createRouter(childRoutes)
+        return createRouterView(childRoutes)
       })}
     </Switch>
   )
@@ -22,7 +22,7 @@ export default function RouterView() {
   return (
     <HashRouter basename="/">
       <RouterLayout>
-        <div>{createRouter(routerConfig)}</div>
+        <div>{createRouterView(routerConfig)}</div>
       </RouterLayout>
     </HashRouter>
   )
