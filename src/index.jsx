@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 10:55:41
- * @LastEditTime: 2021-06-08 14:43:58
+ * @LastEditTime: 2021-06-09 16:57:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\index.js
@@ -9,11 +9,10 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.less'
+import RouterView from './routes'
 
-const a = 1
 const App = () => {
-  return <div>App Test</div>
+  return <RouterView />
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
