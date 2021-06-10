@@ -1,8 +1,18 @@
 import React from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
+import Loadable from 'react-loadable'
 import RouterLayout from '../layout/layout'
-import Home from '../home'
+import Loading from './loading'
 import routerConfig from './config'
+
+const getLoadableComponent = loader => {
+  const config = {
+    loader,
+    loading: Loading,
+    delay: 3000
+  }
+  return Loadable(config)
+}
 
 const createRouterView = data => {
   return (
@@ -10,7 +20,7 @@ const createRouterView = data => {
       {data.map(routerItem => {
         const { path, component, name, childRoutes = [] } = routerItem
         if (childRoutes.length === 0) {
-          return <Route path={`${path}`} key={name} component={Home} />
+          return <Route path={`${path}`} key={name} component={getLoadableComponent(component)} />
         }
         return createRouterView(childRoutes)
       })}

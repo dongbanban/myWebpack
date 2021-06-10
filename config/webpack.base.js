@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:13
- * @LastEditTime: 2021-06-09 17:16:07
+ * @LastEditTime: 2021-06-10 09:50:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.base.js
@@ -10,6 +10,7 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 
 module.exports = {
   entry: ['@babel/polyfill', path.resolve('src/index.jsx')],
@@ -21,9 +22,9 @@ module.exports = {
   resolve: {
     alias: {
       // 设置目录别名
-      '@': path.resolve(__dirname, 'src'),
-      '@assets': path.resolve(__dirname, 'src/assets/'),
-      '@utils': path.resolve(__dirname, 'src/utils/')
+      '@': path.resolve(__dirname, '../src'),
+      '@assets': path.resolve(__dirname, '../src/assets/'),
+      '@utils': path.resolve(__dirname, '../src/utils/')
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'] // 支持ts
   },
@@ -49,7 +50,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              // modules: true, // 开启css-module后会影响antd的样式载入
               importLoaders: 1
             }
           }, // translates CSS into CommonJS
@@ -68,7 +69,19 @@ module.exports = {
               }
             }
           },
-          'less-loader' // compiles Less to CSS
+          {
+            loader: 'less-loader', // compiles Less to CSS
+            options: {
+              lessOptions: {
+                // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
+                modifyVars: {
+                  'primary-color': '#7546C9',
+                  'link-color': '#7546C9'
+                },
+                javascriptEnabled: true
+              }
+            }
+          }
         ]
       },
       {
@@ -108,6 +121,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       // 配置link的css文件的文件名
       filename: '[name].[contenthash].css'
-    })
+    }),
+    new AntdDayjsWebpackPlugin()
   ]
 }

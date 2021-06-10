@@ -31,7 +31,9 @@
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime-corejs3": "^7.14.0",
+    "antd-dayjs-webpack-plugin": "^1.0.6",
     "babel-loader": "^8.2.2",
+    "babel-plugin-import": "^1.13.3",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
@@ -61,10 +63,14 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
+    "antd": "^4.16.2",
     "crypto-js": "^4.0.0",
+    "dayjs": "^1.10.5",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-loadable": "^5.5.0",
     "react-router-dom": "^5.2.0",
     "recoil": "^0.3.1"
   },

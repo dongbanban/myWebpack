@@ -10,12 +10,11 @@
         "@babel/preset-typescript"
     ],
     "plugins": [
-        ["@babel/plugin-proposal-decorators", {
-            "legacy": true
-        }],
-        ["@babel/plugin-proposal-private-methods", {
-            "loose": true
-        }],
-        ["@babel/plugin-transform-runtime", { "corejs": 3, "proposals":true }]
+        ["@babel/plugin-transform-runtime", { "corejs": 3, "proposals":true }],
+        ["import", {
+            "libraryName": "antd",
+            "libraryDirectory": "es",
+            "style": true
+        }]
     ]
 }
