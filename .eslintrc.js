@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-08 14:12:25
- * @LastEditTime: 2021-06-10 11:44:09
+ * @LastEditTime: 2021-06-10 11:44:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\.eslintrc.js
@@ -19,7 +19,7 @@ module.exports = {
     node: true,
     es2021: true
   },
-  extends: ['airbnb', 'airbnb/hooks', 'eslint:recommended', 'plugin:prettier/recommended'],
+  extends: ['airbnb', 'airbnb/hooks', 'eslint:recommended', 'plugin:react/recommended', 'plugin:prettier/recommended'],
   rules: {
     'prettier/prettier': 'error',
     'react-hooks/rules-of-hooks': 'error',
