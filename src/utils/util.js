@@ -1,14 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2021-05-14 11:07:16
- * @LastEditTime: 2021-06-08 16:42:31
+ * @LastEditTime: 2021-06-10 14:15:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\vite-study\src\utils\util.js
  */
 import React, { useEffect, useRef } from 'react'
 import CryptoJS from 'crypto-js'
-import moment from 'moment'
 
 /**
  * @description: 图片添加水印
@@ -100,35 +99,6 @@ export function useInterval(callback, delay) {
     }
   }, [delay])
   /* eslint-enable */
-}
-
-/**
- * @description: 指定年月1号是星期几
- * @param {string} 年-月(YYYY-MM)
- * @return {number} 1-7
- */
-export function firstDayInWeek(date) {
-  return moment(`${date}-01`).weekday()
-}
-
-/**
- * @description: 指定日期所在自然周
- * @param {string} 年月日(YYYY-MM-DD)
- * @return {string[]}
- */
-export function getWeekRange(date, formatRef = 'YYYY-MM-DD') {
-  const weekStart = moment(date).startOf('weeks').add(1, 'day').format(formatRef)
-  const weekEnd = moment(date).endOf('weeks').add(1, 'day').format(formatRef)
-  return [weekStart, weekEnd]
-}
-
-/**
- * @description: 指定月总天数
- * @param {string} 年月日(YYYY-MM-DD|YYYY-MM)
- * @return {number} 1-31
- */
-export function totalDayInMonth(date) {
-  return moment(date).daysInMonth()
 }
 
 /**
