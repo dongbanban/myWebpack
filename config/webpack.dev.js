@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:32
- * @LastEditTime: 2021-06-09 11:46:37
+ * @LastEditTime: 2021-06-10 11:09:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.dev.js
@@ -15,11 +15,12 @@ module.exports = merge(base, {
   target: 'web',
   devtool: 'inline-source-map',
   devServer: {
-    compress: true,
+    compress: true, // 为每个静态文件开启gzip
     contentBase: path.resolve(__dirname, 'dist'),
-    hot: true,
+    hot: true, // 启用 webpack 的 Hot Module Replacement 功能
     historyApiFallback: true,
-    port: 8888
+    port: 8888,
+    host: '0.0.0.0'
     // https: false,
     // proxy: {
     //     '/api': {
