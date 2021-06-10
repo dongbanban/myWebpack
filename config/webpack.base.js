@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:13
- * @LastEditTime: 2021-06-10 11:58:43
+ * @LastEditTime: 2021-06-10 18:26:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.base.js
@@ -15,11 +15,13 @@ const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 module.exports = {
   entry: ['@babel/polyfill', path.resolve('src/index.jsx')],
   output: {
-    filename: '[name].[contenthash].js', // 输出的文件名称
-    path: path.resolve(__dirname, '../dist') // 输出的文件夹
+    filename: '[name].[contenthash:6].js', // 输出的文件名称
+    path: path.resolve(__dirname, '../dist'), // 输出的文件夹
+    chunkFilename: '[name].[contenthash:6].chunk.js' // 动态导入的文件命名
     // assetModuleFilename: 'images/[hash][ext][query]' // 输出的资源文件名
   },
   resolve: {
+    modules: [path.resolve(__dirname, '../node_modules')], // 配置webpack根目录的node_modules寻找第三方模块
     alias: {
       // 设置目录别名
       '@': path.resolve(__dirname, '../src'),
@@ -34,10 +36,7 @@ module.exports = {
         test: /\.(js|ts)x$/,
         exclude: /node_modules/, // 指定目录下的文件不编译
         use: {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true
-          }
+          loader: 'babel-loader'
         }
       },
       {
@@ -46,7 +45,6 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader // 以link标签的形式先创建css文件再引入
           },
-          // 'style-loader', // 直接以style标签形式插入head
           {
             loader: 'css-loader',
             options: {
@@ -73,7 +71,6 @@ module.exports = {
             loader: 'less-loader', // compiles Less to CSS
             options: {
               lessOptions: {
-                // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
                 modifyVars: {
                   'primary-color': '#7546C9',
                   'link-color': '#7546C9'
@@ -112,7 +109,8 @@ module.exports = {
       template: path.join(__dirname, '../index.html'),
       // inject: true, // 样式文件插入head js插入body
       minify: {
-        removeComments: true
+        removeComments: true, // 移除HTML中的注释
+        collapseWhitespace: true // 删除空⽩符与换⾏符
       }
     }),
     new CleanWebpackPlugin({
@@ -120,8 +118,17 @@ module.exports = {
     }), // 每次打包前清空dist目录
     new MiniCssExtractPlugin({
       // 配置link的css文件的文件名
-      filename: '[name].[contenthash].css'
+      filename: '[name].[contenthash:6].css'
     }),
     new AntdDayjsWebpackPlugin()
-  ]
+  ],
+  cache:
+    process.env.NODE_ENV !== 'production'
+      ? {
+          type: 'filesystem',
+          buildDependencies: {
+            config: [__filename]
+          }
+        }
+      : false
 }
