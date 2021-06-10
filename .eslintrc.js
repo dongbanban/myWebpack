@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-08 14:12:25
- * @LastEditTime: 2021-06-08 16:43:07
+ * @LastEditTime: 2021-06-10 11:44:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\.eslintrc.js
@@ -37,7 +37,7 @@ module.exports = {
     'import/no-unresolved': [
       2,
       {
-        ignore: ['^@src/', '^@assets/', '^@utils/']
+        ignore: ['^@/', '^@assets/', '^@utils/']
       }
     ],
     'import/no-extraneous-dependencies': 0,
