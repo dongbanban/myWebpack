@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-09 14:30:34
- * @LastEditTime: 2021-06-11 10:51:53
+ * @LastEditTime: 2021-06-16 17:15:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\routes\config.js
@@ -31,7 +31,7 @@ const routerConfig = [
           },
           {
             path: '/route2/props-v-state',
-            component: () => import(/* webpackChunkName: 'home4' */ '../pages/home'),
+            component: () => import(/* webpackChunkName: 'home4' */ '../pages/home2'),
             name: 'props-v-statePage',
             childRoutes: []
           }

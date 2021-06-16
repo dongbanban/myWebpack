@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:13
- * @LastEditTime: 2021-06-10 18:26:50
+ * @LastEditTime: 2021-06-16 20:39:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.base.js
@@ -11,6 +11,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
+const { DllReferencePlugin } = require('webpack')
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 
 module.exports = {
   entry: ['@babel/polyfill', path.resolve('src/index.jsx')],
@@ -120,7 +122,21 @@ module.exports = {
       // 配置link的css文件的文件名
       filename: '[name].[contenthash:6].css'
     }),
-    new AntdDayjsWebpackPlugin()
+    new AntdDayjsWebpackPlugin(),
+    // 通过引用 dll 的 manifest 文件来把依赖的名称映射到模块的 id 上
+    // DllReferencePlugin去 manifest.json 文件读取 name 字段的值，把值的内容作为在从全局变量中获取动态链接库中内容时的全局变量名
+    new DllReferencePlugin({
+      // context: path.resolve(__dirname, '..'),
+      manifest: path.resolve(__dirname, '../dll/react.manifest.json')
+    }),
+    // 在打包生成的html文件中插入dll文件
+    new AddAssetHtmlWebpackPlugin([
+      {
+        includeRelatedFiles: false,
+        publicPath: '',
+        filepath: path.resolve(__dirname, '../dll/react.dll.js')
+      }
+    ])
   ],
   cache:
     process.env.NODE_ENV !== 'production'
