@@ -1,17 +1,50 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:18
- * @LastEditTime: 2021-06-16 19:00:43
+ * @LastEditTime: 2021-06-21 18:23:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.build.js
  */
+const path = require('path')
 const { merge } = require('webpack-merge')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const base = require('./webpack.base')
+// const { DllReferencePlugin } = require('webpack')
+// const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
+const { plugins, ...otherBase } = require('./webpack.base')
 
-module.exports = merge(base, {
+module.exports = merge(otherBase, {
   mode: 'production',
+  entry: ['@babel/polyfill', path.resolve('src/index.jsx')],
+  output: {
+    filename: '[name].[contenthash:6].js', // 输出的文件名称
+    path: path.resolve(__dirname, '../dist'), // 输出的文件夹
+    chunkFilename: '[name].[contenthash:6].chunk.js' // 动态导入的文件命名
+    // assetModuleFilename: 'images/[hash][ext][query]' // 输出的资源文件名
+  },
+  cache: false,
+  plugins: [
+    ...plugins,
+    // 每次打包前清空dist目录
+    new CleanWebpackPlugin({
+      root: path.join(__dirname, '../dist')
+    })
+    // 通过引用 dll 的 manifest 文件来把依赖的名称映射到模块的 id 上
+    // DllReferencePlugin去 manifest.json 文件读取 name 字段的值，把值的内容作为在从全局变量中获取动态链接库中内容时的全局变量名
+    // new DllReferencePlugin({
+    //   // context: path.resolve(__dirname, '..'),
+    //   manifest: path.resolve(__dirname, '../dll/react.manifest.json')
+    // }),
+    // 在打包生成的html文件中插入dll文件
+    // new AddAssetHtmlWebpackPlugin([
+    //   {
+    //     includeRelatedFiles: false,
+    //     publicPath: '',
+    //     filepath: path.resolve(__dirname, '../dll/react.dll.js')
+    //   }
+    // ])
+  ],
   optimization: {
     minimizer: [
       // 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`），将下一行取消注释

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 10:55:41
- * @LastEditTime: 2021-06-11 11:50:57
+ * @LastEditTime: 2021-06-21 17:34:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\index.js
@@ -9,6 +9,8 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import store from '@/store'
+import { Provider } from 'react-redux'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 import dayjs from 'dayjs'
@@ -19,9 +21,11 @@ dayjs.locale('zh-cn')
 
 const App = () => {
   return (
-    <ConfigProvider direction="ltr" locale={zhCN}>
-      <RouterView />
-    </ConfigProvider>
+    <Provider store={store}>
+      <ConfigProvider direction="ltr" locale={zhCN}>
+        <RouterView />
+      </ConfigProvider>
+    </Provider>
   )
 }
 
