@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 10:55:41
- * @LastEditTime: 2021-06-22 16:48:15
+ * @LastEditTime: 2021-06-22 16:59:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\index.js
@@ -33,7 +33,6 @@ const AppRender = () => {
   ReactDOM.render(<App />, document.getElementById('root'))
 }
 
-/* eslint-disable */
 if (USE_MOCK === 'yes') {
   import('../mock').then(data => {
     AppRender()
@@ -41,4 +40,3 @@ if (USE_MOCK === 'yes') {
 } else {
   AppRender()
 }
-/* eslint-enable */

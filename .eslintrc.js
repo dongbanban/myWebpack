@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-08 14:12:25
- * @LastEditTime: 2021-06-21 18:29:15
+ * @LastEditTime: 2021-06-22 17:02:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\.eslintrc.js
@@ -18,6 +18,10 @@ module.exports = {
     browser: true,
     node: true,
     es2021: true
+  },
+  globals: {
+    ENV: 'readonly',
+    USE_MOCK: 'readonly'
   },
   extends: ['airbnb', 'airbnb/hooks', 'eslint:recommended', 'plugin:react/recommended', 'plugin:prettier/recommended'],
   rules: {
