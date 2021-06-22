@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-08 14:12:25
- * @LastEditTime: 2021-06-10 11:48:53
+ * @LastEditTime: 2021-06-21 18:29:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\.eslintrc.js
@@ -47,6 +47,7 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'linebreak-style': 0,
-    'no-unused-vars': 0
+    'no-unused-vars': 0,
+    'no-param-reassign': 0
   }
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 10:55:41
- * @LastEditTime: 2021-06-21 17:34:38
+ * @LastEditTime: 2021-06-22 16:48:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\index.js
@@ -29,4 +29,16 @@ const App = () => {
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const AppRender = () => {
+  ReactDOM.render(<App />, document.getElementById('root'))
+}
+
+/* eslint-disable */
+if (USE_MOCK === 'yes') {
+  import('../mock').then(data => {
+    AppRender()
+  })
+} else {
+  AppRender()
+}
+/* eslint-enable */
