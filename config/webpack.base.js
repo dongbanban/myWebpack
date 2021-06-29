@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:13
- * @LastEditTime: 2021-06-22 16:35:27
+ * @LastEditTime: 2021-06-29 18:45:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.base.js
@@ -10,7 +10,6 @@ const path = require('path')
 const { DefinePlugin } = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 
 module.exports = {
   resolve: {
@@ -110,7 +109,6 @@ module.exports = {
       // 配置link的css文件的文件名
       filename: '[name].[contenthash:6].css'
     }),
-    new AntdDayjsWebpackPlugin(),
     new DefinePlugin({
       ENV: JSON.stringify(process.env.NODE_ENV),
       USE_MOCK: JSON.stringify(process.env.MOCK)
