@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-08 14:12:25
- * @LastEditTime: 2021-06-22 17:02:28
+ * @LastEditTime: 2021-06-29 16:59:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\.eslintrc.js
@@ -9,8 +9,8 @@
 
 module.exports = {
   root: true,
+  parser: '@babel/eslint-parser', // 解析器
   parserOptions: {
-    parser: '@babel/eslint-parser', // 解析器
     sourceType: 'module',
     ecmaVersion: 12
   },
