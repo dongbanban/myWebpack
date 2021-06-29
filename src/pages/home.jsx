@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-09 17:11:07
- * @LastEditTime: 2021-06-29 18:52:02
+ * @LastEditTime: 2021-06-30 00:02:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\home.jsx
@@ -16,7 +16,7 @@ export default function Home() {
   const history = useHistory()
 
   const handleClick = () => {
-    history.push('/topics/props-v-state')
+    history.push('/route1/home2')
   }
 
   const match = useRouteMatch()
