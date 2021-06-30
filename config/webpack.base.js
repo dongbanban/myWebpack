@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:13
- * @LastEditTime: 2021-06-29 18:45:21
+ * @LastEditTime: 2021-06-30 09:10:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.base.js
@@ -113,11 +113,5 @@ module.exports = {
       ENV: JSON.stringify(process.env.NODE_ENV),
       USE_MOCK: JSON.stringify(process.env.MOCK)
     })
-  ],
-  cache: {
-    type: 'filesystem',
-    buildDependencies: {
-      config: [__filename]
-    }
-  }
+  ]
 }
