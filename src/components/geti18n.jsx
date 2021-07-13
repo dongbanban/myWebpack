@@ -1,25 +1,17 @@
-// /*
-//  * @Author: your name
-//  * @Date: 2021-06-25 14:56:48
-//  * @LastEditTime: 2021-06-25 15:33:54
-//  * @LastEditors: Please set LastEditors
-//  * @Description: In User Settings Edit
-//  * @FilePath: \coded:\myWebpack\src\components\geti18n.js
-//  */
-// /*
-//  * @Author: your name
-//  * @Date: 2021-03-02 10:55:19
-//  * @LastEditTime: 2021-03-02 10:58:56
-//  * @LastEditors: Please set LastEditors
-//  * @Description: In User Settings Edit
-//  * @FilePath: \code\my-app\src\demo\geti18n.js
-//  */
+/*
+ * @Author: your name
+ * @Date: 2021-06-25 14:56:48
+ * @LastEditTime: 2021-07-13 18:27:50
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \coded:\myWebpack\src\components\geti18n.js
+ */
 // import React from 'react'
-// import * as zh from '../locales/zh-CN'
-// import * as en from '../locales/en-US'
-// import * as id from '../locales/id-ID'
-// import * as my from '../locales/my-MM'
-// import * as th from '../locales/th-TH'
+// import * as zh from '@/locales/zh-CN'
+// import * as en from '@/locales/en-US'
+// // import * as id from '@/locales/id-ID'
+// // import * as my from '@/locales/my-MM'
+// // import * as th from '@/locales/th-Th'
 // import XLSX from 'xlsx'
 
 // // 字符串转ArrayBuffer
@@ -65,9 +57,9 @@
 
 // function Geti18n() {
 //   const handleClick = () => {
-//     const data = [['编码', '中文', '英文', '印尼', '缅甸', '泰语']]
+//     const data = [['编码', '中文', '英文']]
 //     Object.keys(zh.default).map(code => {
-//       return data.push([code, zh.default[code], en.default[code], id.default[code], my.default[code], th.default[code]])
+//       return data.push([code, zh.default[code], en.default[code]])
 //     })
 //     const sheet = XLSX.utils.aoa_to_sheet(data)
 //     openDownloadDialog(sheet2blob(sheet), '国际化.xlsx')

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-29 16:40:07
- * @LastEditTime: 2021-06-30 00:04:50
+ * @LastEditTime: 2021-07-13 18:28:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\pages\home3.jsx
@@ -16,6 +16,7 @@ export default function Home3() {
       <RecoilDemo />
       <ContextTest />
       <MemoTest />
+      {/* <Geti18n /> */}
     </div>
   )
 }
