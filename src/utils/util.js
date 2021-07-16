@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-14 11:07:16
- * @LastEditTime: 2021-06-10 14:15:08
+ * @LastEditTime: 2021-07-16 11:29:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\vite-study\src\utils\util.js
@@ -50,7 +50,7 @@ export function splitInNumber(data, n) {
   data.forEach((item, index) => {
     if (index % n === 0) {
       result.push([item])
-    } else if (index % n !== 0) {
+    } else {
       result[result.length - 1].push(item)
     }
   })
