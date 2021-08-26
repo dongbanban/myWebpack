@@ -25,7 +25,7 @@ export default function Home2() {
           Decrement
         </button>
         <button type="button" onClick={() => dispatch(incrementByAmount(2))}>
-          incrementByAmount2
+          incrementByAmount
         </button>
       </div>
     </div>
