@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-09 17:11:07
- * @LastEditTime: 2021-08-26 10:02:33
+ * @LastEditTime: 2021-08-26 10:18:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\home.jsx
@@ -25,7 +25,7 @@ export default function Home2() {
           Decrement
         </button>
         <button type="button" onClick={() => dispatch(incrementByAmount(2))}>
-          incrementByAmount
+          incrementByAmount2
         </button>
       </div>
     </div>
