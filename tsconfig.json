@@ -1,15 +1,24 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
+        "incremental": true, // 允许增量编译，有助于加快编译速度
+        "target": "ESNEXT", // 直接输出为最新的 ES 标准
+        "module": "ESNext", // 面向未来的 ESM 模块化
+        "allowJs": true, // 允许编译 JavaScript 文件
+        "checkJS": true, // 允许编译 JavaScript 文件
+        // "jsx": "react-jsx", // 直接通过 TSC 将 JSX 代码片段编译为 JS 代码片段, ts 4.1新特性
+        // "declaration": true, // 开发的是npm包设为true
         "sourceMap": true,
-        "noImplicitAny": true,
-        "esModuleInterop": true,
-        "module": "commonjs",
-        "target": "es5",
-        "noUnusedLocals": true,
-        "jsx": "react"
+        "outDir": "./dist/es", // 输出目录
+        "rootDir": "./src", // 存放源代码的目录
+        "strict": true, // 启用所有严格类型检查选项
+        "moduleResolution": "node", // 模块解析模式设为 Node.js
+        "allowSyntheticDefaultImports": true, // 让 import React from 'react' 这样的语句不会报错
+        "esModuleInterop": true, // 让 import React from 'react' 这样的语句不会报错
+        "experimentalDecorators": true, // 允许使用装饰器特性
+        "emitDecoratorMetadata": true, // 允许使用装饰器特性
     },
     "include": [
         "./src/**/*"
-    ]
+    ],
+    "exclude": ["node_modules"]
 }
