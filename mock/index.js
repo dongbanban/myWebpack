@@ -1,10 +1,6 @@
 /*
- * @Author: your name
- * @Date: 2021-06-22 15:15:12
- * @LastEditTime: 2021-06-23 09:36:48
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \coded:\myWebpack\mock\index.js
+ * @file: mock类
+ * @author: dongyang
  */
 
 // https://github.com/nuysoft/Mock/wiki/Syntax-Specification
