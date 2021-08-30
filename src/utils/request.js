@@ -1,36 +1,43 @@
 /*
- * @Author: your name
- * @Date: 2021-06-22 15:54:07
- * @LastEditTime: 2021-06-22 16:47:04
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \coded:\myWebpack\src\utils\request.js
+ * @file: 请求类
+ * @author: dongyang
  */
+
 import axios from 'axios'
+import { addCancel } from './cancelManage'
 import { stringify } from 'qs'
 
-const request = axios.create({
-  baseURL: '/',
-  timeout: 50000,
-  headers: {
-    Authorization: 'dongbanban'
+const request = ({ reqId, url, method = 'get', params, headers, formData = null, cancelable }) => {
+  const config = {
+    method,
+    url,
+    baseURL: '/',
+    withCredentials: true,
+    headers: {
+      ...headers,
+      Authorization: 'dongbanban'
+    },
+    params: method === 'get' ? params : null,
+    paramsSerializer: params => stringify(params, { arrayFormat: 'brackets' }),
+    data: formData
+      ? Object.prototype.toString.call(formData) === '[object FormData]'
+        ? formData
+        : new FormData(formData)
+      : ['post', 'put', 'delete'].includes(method)
+      ? params
+      : null
   }
-})
-
-/** GET请求 */
-request.get = options =>
-  new Promise((resolve, reject) => {
-    request({
-      ...options,
-      method: 'get',
-      paramsSerializer: params => stringify(params, { arrayFormat: 'brackets' })
+  if (cancelable) {
+    const source = axios.CancelToken.source()
+    addCancel({
+      reqId,
+      url,
+      source
     })
-      .then(res => {
-        resolve(res.data)
-      })
-      .catch(err => {
-        reject(err)
-      })
-  })
+
+    config.cancelToken = source?.token
+  }
+  return axios(config)
+}
 
 export default request
