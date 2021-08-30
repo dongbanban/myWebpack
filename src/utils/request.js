@@ -7,7 +7,7 @@ import axios from 'axios'
 import { addCancel } from './cancelManage'
 import { stringify } from 'qs'
 
-const request = ({ reqId, url, method = 'get', params, headers, formData = null, cancelable }) => {
+const request = ({ reqId, url, method = 'get', params, headers = {}, formData = null, cancelable }) => {
   const config = {
     method,
     url,
