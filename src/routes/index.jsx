@@ -28,12 +28,12 @@ const createRouterView = data => {
   )
 }
 
-export default function RouterView() {
-  return (
-    <HashRouter basename="/">
-      <RouterLayout>
-        <div>{createRouterView(routerConfig)}</div>
-      </RouterLayout>
-    </HashRouter>
-  )
-}
+const RouterView = () => (
+  <HashRouter basename="/">
+    <RouterLayout>
+      <div>{createRouterView(routerConfig)}</div>
+    </RouterLayout>
+  </HashRouter>
+)
+
+export default RouterView
