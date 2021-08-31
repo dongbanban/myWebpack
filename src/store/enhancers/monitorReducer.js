@@ -1,11 +1,8 @@
 /*
- * @Author: your name
- * @Date: 2021-06-30 10:22:14
- * @LastEditTime: 2021-06-30 10:22:22
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \coded:\myWebpack\src\store\enhancers\monitorReducer.js
+ * @file: reducer更新用时
+ * @author: dongyang
  */
+
 const round = number => Math.round(number * 100) / 100
 
 const monitorReducerEnhancer = createStore => (reducer, initialState, enhancer) => {

@@ -1,16 +1,17 @@
 /*
- * @Author: your name
- * @Date: 2021-06-21 17:33:38
- * @LastEditTime: 2021-06-30 16:34:55
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \coded:\myWebpack\src\store\index.js
+ * @file: 创建完整store
+ * @author: dongyang
  */
+
 import { configureStore } from '@reduxjs/toolkit'
+import logger from './middleware/logger'
+import monitorReducerEnhancer from './enhancers/monitorReducer'
 import counterReducer from './testStore'
 
 export default configureStore({
   reducer: {
     counter: counterReducer
-  }
+  },
+  middleware: [logger],
+  enhancers: [monitorReducerEnhancer]
 })

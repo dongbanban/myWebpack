@@ -1,11 +1,8 @@
 /*
- * @Author: your name
- * @Date: 2021-06-30 10:21:21
- * @LastEditTime: 2021-06-30 10:21:39
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \coded:\myWebpack\src\store\middleware\logger.js
+ * @file: 自定义中间件
+ * @author: dongyang
  */
+
 const logger = store => next => action => {
   console.group(action.type)
   console.info('dispatching', action)
