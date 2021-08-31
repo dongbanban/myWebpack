@@ -12,6 +12,7 @@ export default configureStore({
   reducer: {
     counter: counterReducer
   },
-  middleware: [logger],
-  enhancers: [monitorReducerEnhancer]
+  middleware: getDefaultMiddleware => [...getDefaultMiddleware(),logger],
+  enhancers: [monitorReducerEnhancer],
+  devTools: true
 })
