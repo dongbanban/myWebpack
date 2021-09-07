@@ -1,17 +1,23 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:13
- * @LastEditTime: 2021-06-30 09:10:05
+ * @LastEditTime: 2021-09-07 10:15:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.base.js
  */
+
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const isDevelopment = process.env.NODE_ENV !== 'production';
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
+  entry: {
+    main: './src/index.jsx',
+  },
   resolve: {
     modules: [path.resolve(__dirname, '../node_modules')], // 配置webpack根目录的node_modules寻找第三方模块
     alias: {
@@ -28,7 +34,10 @@ module.exports = {
         test: /\.(js|ts)x$/,
         exclude: /node_modules/, // 指定目录下的文件不编译
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean),
+          },
         }
       },
       {
@@ -94,6 +103,7 @@ module.exports = {
     ]
   },
   plugins: [
+    isDevelopment && new ReactRefreshPlugin(),
     new HtmlWebpackPlugin({
       // chunks:['index'], // 设置的entry chunkName
       // filename: 'index.html', // 默认的filename
@@ -113,5 +123,5 @@ module.exports = {
       ENV: JSON.stringify(process.env.NODE_ENV),
       USE_MOCK: JSON.stringify(process.env.MOCK)
     })
-  ]
+  ].filter(Boolean),
 }

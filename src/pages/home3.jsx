@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-29 16:40:07
- * @LastEditTime: 2021-07-13 18:28:08
+ * @LastEditTime: 2021-09-07 09:53:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\pages\home3.jsx
@@ -10,7 +10,7 @@
 import React from 'react'
 import { ContextTest, MemoTest, RecoilDemo } from '@/components/index'
 
-export default function Home3() {
+const Home3 = () => {
   return (
     <div>
       <RecoilDemo />
@@ -20,3 +20,5 @@ export default function Home3() {
     </div>
   )
 }
+
+export default Home3

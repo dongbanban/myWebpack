@@ -10,6 +10,7 @@
         "@babel/preset-typescript"
     ],
     "plugins": [
+        ["react-refresh/babel"],
         ["@babel/plugin-transform-runtime", { "corejs": 3, "proposals":true }],
         ["import", {
             "libraryName": "antd",

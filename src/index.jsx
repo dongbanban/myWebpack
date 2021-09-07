@@ -1,12 +1,11 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 10:55:41
- * @LastEditTime: 2021-06-29 18:41:00
+ * @LastEditTime: 2021-09-06 16:54:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\index.js
  */
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import store from '@/store'
@@ -40,3 +39,4 @@ if (USE_MOCK === 'yes') {
 } else {
   AppRender()
 }
+

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 18:26:32
- * @LastEditTime: 2021-06-30 09:10:14
+ * @LastEditTime: 2021-09-07 10:23:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\config\webpack.dev.js
@@ -31,6 +31,9 @@ module.exports = merge(base, {
     //         // },
     //     }
     // },
+  },
+  optimization: {
+    runtimeChunk: 'single'
   },
   cache: {
     type: 'filesystem',
