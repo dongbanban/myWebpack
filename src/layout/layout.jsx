@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-09 16:49:22
- * @LastEditTime: 2021-06-21 17:52:06
+ * @LastEditTime: 2021-11-24 14:29:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \coded:\myWebpack\src\layout.jsx
@@ -23,10 +23,10 @@ export default function RouterLayout({ children }) {
           <Link to="/route1/dongbanbantest">route1</Link>
         </li>
         <li key={2}>
-          <Link to="/route2/home">route2 home</Link>
+          <Link to="/route2/home">route2</Link>
         </li>
         <li key={3}>
-          <Link to="/route2/home2">route2 home2</Link>
+          <Link to="/route3">route3</Link>
         </li>
       </ul>
       {children}

@@ -16,22 +16,22 @@ const getLoadableComponent = loader => {
 
 const createRouterView = data => {
   return (
-    <Switch key="switch">
-      {data.map(routerItem => {
-        const { path, component, name, childRoutes = [] } = routerItem
-        if (childRoutes.length === 0) {
-          return <Route path={`${path}`} key={name} component={getLoadableComponent(component)} />
-        }
+    data.map(routerItem => {
+      const { path, component, name, childRoutes = [] } = routerItem
+      if (childRoutes.length > 0) {
         return createRouterView(childRoutes)
-      })}
-    </Switch>
+      }
+      return <Route path={`${path}`} key={name} component={getLoadableComponent(component)} />
+    })
   )
 }
 
 const RouterView = () => (
   <HashRouter basename="/">
     <RouterLayout>
-      <div>{createRouterView(routerConfig)}</div>
+      <Switch key="switch">
+        {createRouterView(routerConfig)}
+      </Switch>
     </RouterLayout>
   </HashRouter>
 )
